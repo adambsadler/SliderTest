@@ -12,8 +12,14 @@ class TestManager: ObservableObject {
     @Published var session_id = Int()
     @Published var step_count = Int()
     @Published var ticks = [Double]()
+    @Published var isLoading = false
+    
+    init() {
+        startTest()
+    }
     
     func startTest() {
+        isLoading = true
         guard let url = URL(string: "https://iostestserver-su6iqkb5pq-uc.a.run.app/test_start") else {
             return
         }
@@ -37,6 +43,7 @@ class TestManager: ObservableObject {
                     self.step_count = response.step_count
                     self.ticks = response.ticks
                     self.ticks.sort(by: >)
+                    self.isLoading = false
                 }
                 print(response)
                 
