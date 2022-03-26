@@ -8,7 +8,10 @@
 import SwiftUI
 import Combine
 
-class TestManager {
+class TestManager: ObservableObject {
+    @Published var session_id = Int()
+    @Published var step_count = Int()
+    @Published var ticks = [Double]()
     
     func startTest() {
         guard let url = URL(string: "https://iostestserver-su6iqkb5pq-uc.a.run.app/test_start") else {
@@ -29,13 +32,18 @@ class TestManager {
             
             do {
                 let response = try JSONDecoder().decode(FirstTestResults.self, from: data)
+                DispatchQueue.main.async {
+                    self.session_id = response.session_id
+                    self.step_count = response.step_count
+                    self.ticks = response.ticks
+                }
                 print(response)
+                
             } catch {
                 print(error)
             }
         }
         task.resume()
     }
-    
     
 }

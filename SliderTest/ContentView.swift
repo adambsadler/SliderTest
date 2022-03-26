@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var testManager = TestManager()
     @State var sliderValue: Double = 0
-    var testManager = TestManager()
+    
     var body: some View {
-        
         VStack {
             Text("Please take this test")
                 .padding()
@@ -27,10 +27,13 @@ struct ContentView: View {
                     
             }
             Button("Next") {
-                self.testManager.startTest()
+                print(testManager.ticks)
             }
+        }.onAppear {
+            self.testManager.startTest()
         }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
