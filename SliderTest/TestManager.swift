@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Combine
+//import Combine
 
 class TestManager: ObservableObject {
     @Published var session_id = Int()
@@ -36,6 +36,7 @@ class TestManager: ObservableObject {
                     self.session_id = response.session_id
                     self.step_count = response.step_count
                     self.ticks = response.ticks
+                    self.ticks.sort(by: >)
                 }
                 print(response)
                 
