@@ -28,9 +28,9 @@
 		85BC37F227EE7F3700FD1B68 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		85BC37F427EE860900FD1B68 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		85BC37F927EF639800FD1B68 /* TestOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOneView.swift; sourceTree = "<group>"; };
-		85BC37FB27EF8B1A00FD1B68 /* TestTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTwoView.swift; sourceTree = SOURCE_ROOT; };
-		85BC380527F0A8BA00FD1B68 /* TestThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestThreeView.swift; sourceTree = SOURCE_ROOT; };
-		85BC380727F0A94800FD1B68 /* FinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalView.swift; sourceTree = SOURCE_ROOT; };
+		85BC37FB27EF8B1A00FD1B68 /* TestTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestTwoView.swift; path = SliderTest/Views/TestTwoView.swift; sourceTree = SOURCE_ROOT; };
+		85BC380527F0A8BA00FD1B68 /* TestThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestThreeView.swift; path = SliderTest/Views/TestThreeView.swift; sourceTree = SOURCE_ROOT; };
+		85BC380727F0A94800FD1B68 /* FinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FinalView.swift; path = SliderTest/Views/FinalView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,14 +63,10 @@
 		85BC37E227EE72BD00FD1B68 /* SliderTest */ = {
 			isa = PBXGroup;
 			children = (
-				85BC380727F0A94800FD1B68 /* FinalView.swift */,
-				85BC380527F0A8BA00FD1B68 /* TestThreeView.swift */,
-				85BC37FB27EF8B1A00FD1B68 /* TestTwoView.swift */,
-				85BC37F927EF639800FD1B68 /* TestOneView.swift */,
-				85BC37F427EE860900FD1B68 /* TestData.swift */,
-				85BC37F227EE7F3700FD1B68 /* TestViewModel.swift */,
+				85BC380B27F0D68400FD1B68 /* Model */,
+				85BC380A27F0D67500FD1B68 /* ViewModel */,
+				85BC380927F0D65A00FD1B68 /* Views */,
 				85BC37E327EE72BD00FD1B68 /* SliderTestApp.swift */,
-				85BC37E527EE72BD00FD1B68 /* ContentView.swift */,
 				85BC37E727EE72BE00FD1B68 /* Assets.xcassets */,
 				85BC37E927EE72BE00FD1B68 /* Preview Content */,
 			);
@@ -83,6 +79,34 @@
 				85BC37EA27EE72BE00FD1B68 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		85BC380927F0D65A00FD1B68 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				85BC37E527EE72BD00FD1B68 /* ContentView.swift */,
+				85BC380727F0A94800FD1B68 /* FinalView.swift */,
+				85BC380527F0A8BA00FD1B68 /* TestThreeView.swift */,
+				85BC37FB27EF8B1A00FD1B68 /* TestTwoView.swift */,
+				85BC37F927EF639800FD1B68 /* TestOneView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		85BC380A27F0D67500FD1B68 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				85BC37F227EE7F3700FD1B68 /* TestViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		85BC380B27F0D68400FD1B68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				85BC37F427EE860900FD1B68 /* TestData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -1,13 +1,14 @@
 //
-//  TestThreeView.swift
+//  TestTwoView.swift
 //  SliderTest
 //
-//  Created by Adam Sadler on 3/27/22.
+//  Created by Adam Sadler on 3/26/22.
 //
 
 import SwiftUI
+import Combine
 
-struct TestThreeView: View {
+struct TestTwoView: View {
     @EnvironmentObject var viewModel: TestViewModel
 
     @State var selection = 0.0
@@ -16,7 +17,7 @@ struct TestThreeView: View {
     
     var body: some View {
         VStack {
-            Text("Please take this THIRD test")
+            Text("Please take this test")
                 .padding()
                 .dynamicTypeSize(/*@START_MENU_TOKEN@*/.xxxLarge/*@END_MENU_TOKEN@*/)
                 .font(.headline)
@@ -97,7 +98,7 @@ struct TestThreeView: View {
             .frame(width: /*@START_MENU_TOKEN@*/400.0/*@END_MENU_TOKEN@*/, height: 350)
             .padding(.bottom)
             .padding(.top)
-            NavigationLink(destination: FinalView()) {
+            NavigationLink(destination: TestThreeView()) {
                 Text("NEXT")
                     .padding()
                     .font(.headline)
@@ -106,9 +107,11 @@ struct TestThreeView: View {
                     .background(Color.yellow)
                     .clipShape(Capsule())
             }.simultaneousGesture(TapGesture().onEnded {
-                viewModel.thirdTestIncrement = increment
-                viewModel.thirdTestSelection = selection
+                viewModel.secondTestIncrement = increment
+                viewModel.secondTestSelection = selection
+                viewModel.nextTest(selection: increment)
             })
+            
         }
         .navigationBarHidden(true)
         .onAppear {
@@ -117,8 +120,8 @@ struct TestThreeView: View {
     }
 }
 
-struct TestThreeView_Previews: PreviewProvider {
+struct TestTwoView_Previews: PreviewProvider {
     static var previews: some View {
-        TestThreeView().environmentObject(TestViewModel())
+        TestTwoView().environmentObject(TestViewModel())
     }
 }
