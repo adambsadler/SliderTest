@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FirstTestResults: Codable {
+struct TestData: Codable {
     let session_id: Int
     let step_count: Int
     let ticks: [Double]

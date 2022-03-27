@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var testManager = TestManager()
+    @StateObject var viewModel: TestViewModel = TestViewModel()
     
     var body: some View {
-        if testManager.isLoading {
-            Text("Loading Test...")
-                .font(.headline)
-                .dynamicTypeSize(/*@START_MENU_TOKEN@*/.xxxLarge/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            if viewModel.isLoading {
+                Text("Loading Test...")
+                    .font(.headline)
+                    .dynamicTypeSize(/*@START_MENU_TOKEN@*/.xxxLarge/*@END_MENU_TOKEN@*/)
+            } else if !viewModel.isLoading {
+                TestOneView()
+            }
         }
-        else if !testManager.isLoading {
-            TestOneView(ticks: testManager.ticks)
-        }
+        .navigationBarHidden(true)
+        .environmentObject(viewModel)
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
