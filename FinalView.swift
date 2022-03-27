@@ -18,39 +18,29 @@ struct FinalView: View {
             HStack {
                 Spacer()
                 Spacer()
-                Text("Slider 1:")
-                    .font(.headline)
+                VStack {
+                    Text("Slider 1:")
+                        .font(.headline)
+                    Text("Slider 2:")
+                        .font(.headline)
+                    Text("Slider 3:")
+                        .font(.headline)
+                }
                 Spacer()
-                Text(String(viewModel.firstTestIncrement))
+                VStack {
+                    Text(String(viewModel.firstTestIncrement))
+                    Text(String(viewModel.secondTestIncrement))
+                    Text(String(viewModel.thirdTestIncrement))
+                }
                 Spacer()
-                Text(String(viewModel.firstTestSelection))
-                Spacer()
-                Spacer()
-            }
-            HStack {
-                Spacer()
-                Spacer()
-                Text("Slider 2:")
-                    .font(.headline)
-                Spacer()
-                Text(String(viewModel.secondTestIncrement))
-                Spacer()
-                Text(String(viewModel.secondTestSelection))
-                Spacer()
-                Spacer()
-            }
-            HStack {
+                VStack {
+                    Text(String(viewModel.firstTestSelection))
+                    Text(String(viewModel.secondTestSelection))
+                    Text(String(viewModel.thirdTestSelection))
+                }
                 Spacer()
                 Spacer()
-                Text("Slider 3:")
-                    .font(.headline)
-                Spacer()
-                Text(String(viewModel.thirdTestIncrement))
-                Spacer()
-                Text(String(viewModel.thirdTestSelection))
-                Spacer()
-                Spacer()
-            }
+            }.padding(.bottom)
             NavigationLink(destination: ContentView()) {
                 Text("START OVER")
                     .padding()
@@ -67,6 +57,6 @@ struct FinalView: View {
 
 struct FinalView_Previews: PreviewProvider {
     static var previews: some View {
-        FinalView()
+        FinalView().environmentObject(TestViewModel())
     }
 }

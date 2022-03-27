@@ -51,7 +51,6 @@ class TestViewModel: ObservableObject {
                     self.ticks.sort(by: >)
                     self.isLoading = false
                 }
-                print(response)
             } catch {
                 print(error)
             }
@@ -85,7 +84,6 @@ class TestViewModel: ObservableObject {
                     self.step_count = response.step_count
                     self.ticks = response.ticks
                     self.ticks.sort(by: >)
-                    print(response)
                 }
                 
             } catch {

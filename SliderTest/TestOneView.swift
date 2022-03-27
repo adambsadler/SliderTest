@@ -20,7 +20,7 @@ struct TestOneView: View {
                 .padding()
                 .dynamicTypeSize(/*@START_MENU_TOKEN@*/.xxxLarge/*@END_MENU_TOKEN@*/)
                 .font(.headline)
-            Text("Current value: \(selection)")
+            Text("Current value: \(selection, specifier: "%.2f")")
                 .dynamicTypeSize(/*@START_MENU_TOKEN@*/.medium/*@END_MENU_TOKEN@*/)
             HStack {
                 Spacer()
@@ -35,18 +35,17 @@ struct TestOneView: View {
                         .fill(.linearGradient(Gradient(colors: [.orange, .yellow]), startPoint: .bottom, endPoint: .top))
                         .frame(width: 25.0, height: min(CGFloat(progress) * 325.0, 325.0))
                         .opacity(0.75)
-                        
-//                    ZStack{
-//                        Circle()
-//                            .fill(.yellow)
-//                            .frame(width: 50.0, height: 50.0)
-//                            .offset(y: progress * -300.0)
-//                            .opacity(0.25)
-//                        Circle()
-//                            .fill(.white)
-//                            .frame(width: 25.0, height: 25.0)
-//                            .offset(y: progress * -300.0)
-//                    }
+                    ZStack{
+                        Circle()
+                            .fill(.yellow)
+                            .frame(width: 50.0, height: 50.0)
+                            .opacity(0.25)
+                        Circle()
+                            .fill(.white)
+                            .frame(width: 30.0, height: 30.0)
+                            
+                    }
+                    .offset(y: (progress - 0.05) * -300.0)
                     
                 }.padding()
                 Spacer()
@@ -95,6 +94,8 @@ struct TestOneView: View {
                 Spacer()
             }
             .frame(width: /*@START_MENU_TOKEN@*/400.0/*@END_MENU_TOKEN@*/, height: 350)
+            .padding(.bottom)
+            .padding(.top)
             NavigationLink(destination: TestTwoView()) {
                 Text("NEXT")
                     .padding()
@@ -107,7 +108,6 @@ struct TestOneView: View {
                 viewModel.firstTestIncrement = increment
                 viewModel.firstTestSelection = selection
                 viewModel.nextTest(selection: increment)
-                print(increment)
             })
         }
         .navigationBarHidden(true)
@@ -119,6 +119,6 @@ struct TestOneView: View {
 
 struct TestOneView_Previews: PreviewProvider {
     static var previews: some View {
-        TestOneView()
+        TestOneView().environmentObject(TestViewModel())
     }
 }

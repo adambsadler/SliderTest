@@ -21,7 +21,7 @@ struct TestTwoView: View {
                 .padding()
                 .dynamicTypeSize(/*@START_MENU_TOKEN@*/.xxxLarge/*@END_MENU_TOKEN@*/)
                 .font(.headline)
-            Text("Current value: \(selection)")
+            Text("Current value: \(selection, specifier: "%.2f")")
                 .dynamicTypeSize(/*@START_MENU_TOKEN@*/.medium/*@END_MENU_TOKEN@*/)
             HStack {
                 Spacer()
@@ -37,17 +37,17 @@ struct TestTwoView: View {
                         .frame(width: 25.0, height: min(CGFloat(progress) * 325.0, 325.0))
                         .opacity(0.75)
                         
-//                    ZStack{
-//                        Circle()
-//                            .fill(.yellow)
-//                            .frame(width: 50.0, height: 50.0)
-//                            .offset(y: progress * -300.0)
-//                            .opacity(0.25)
-//                        Circle()
-//                            .fill(.white)
-//                            .frame(width: 25.0, height: 25.0)
-//                            .offset(y: progress * -300.0)
-//                    }
+                    ZStack{
+                        Circle()
+                            .fill(.yellow)
+                            .frame(width: 50.0, height: 50.0)
+                            .opacity(0.25)
+                        Circle()
+                            .fill(.white)
+                            .frame(width: 30.0, height: 30.0)
+                            
+                    }
+                    .offset(y: (progress - 0.05) * -300.0)
                     
                 }.padding()
                 Spacer()
@@ -96,7 +96,8 @@ struct TestTwoView: View {
                 Spacer()
             }
             .frame(width: /*@START_MENU_TOKEN@*/400.0/*@END_MENU_TOKEN@*/, height: 350)
-            
+            .padding(.bottom)
+            .padding(.top)
             NavigationLink(destination: TestThreeView()) {
                 Text("NEXT")
                     .padding()
@@ -109,7 +110,6 @@ struct TestTwoView: View {
                 viewModel.secondTestIncrement = increment
                 viewModel.secondTestSelection = selection
                 viewModel.nextTest(selection: increment)
-                print(increment)
             })
             
         }
@@ -122,6 +122,6 @@ struct TestTwoView: View {
 
 struct TestTwoView_Previews: PreviewProvider {
     static var previews: some View {
-        TestTwoView()
+        TestTwoView().environmentObject(TestViewModel())
     }
 }
