@@ -14,6 +14,7 @@ struct FinalView: View {
         VStack {
             Text("Slider Results")
                 .font(.title)
+                .dynamicTypeSize(.xxxLarge)
                 .padding()
             HStack {
                 Spacer()

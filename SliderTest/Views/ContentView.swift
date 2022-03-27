@@ -22,6 +22,7 @@ struct ContentView: View {
         }
         .navigationBarHidden(true)
         .environmentObject(viewModel)
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
